@@ -4,7 +4,7 @@ This is a lightweight package that allows you to easily implement auto-tabbing (
 
 ## Demo / Example
 
-[Go to this page to see a live demo!] (https://okdv.github.io/react-auto-tab/)
+[Go to this page to see a live demo!](https://okdv.github.io/react-auto-tab/)
 
 ## Installation
 
@@ -54,19 +54,21 @@ return <AutoTabProvider settings={settings}>...</AutoTabProvider>
 
 To pass props to a child of `<AutoTabProvider>`, just include it as a prop on the element
 
-```html
+```jsx
 <AutoTabProvider>
-  <label for="myInput-1" className="myClass" myId="myId" style="">You</label>
-  <input type="text" ignorefocus="{1}" className="myClass" maxlength="2" />
-  <span className="mySpan">Are</span>
+  <label for='myInput-1' className='myClass' myId='myId' style=''>
+    You
+  </label>
+  <input type='text' ignorefocus='{1}' className='myClass' maxlength='2' />
+  <span className='mySpan'>Are</span>
   <input
-    type="number"
-    customProp="customValue"
-    focusonmax="false"
-    focusonkey="enter"
+    type='number'
+    customProp='customValue'
+    focusonmax='false'
+    focusonkey='enter'
   />
   <p>Awesome</p>
-  <input type="text" maxlength="3" />
+  <input type='text' maxlength='3' />
 </AutoTabProvider>
 ```
 
@@ -90,13 +92,13 @@ As mentioned, any `input`, `textarea`, and `select` elements are included as foc
 
 Non-direct children will not be focusable, but they will still be rendered. For example, the input in the below example with `id: 'nonDirect'` will be skipped without use of `ignore`, but it will still render
 
-```html
+```jsx
 <AutoTabProvider>
-  <input type="text" maxlength="2" />
+  <input type='text' maxlength='2' />
   <div>
-    <input type="text" maxlength="3" id="nonDirect" />
+    <input type='text' maxlength='3' id='nonDirect' />
   </div>
-  <input type="text" maxlength="2" />
+  <input type='text' maxlength='2' />
 </AutoTabProvider>
 ```
 
@@ -110,19 +112,19 @@ Just to make sure _all bases_ are covered here, here are several examples of usa
 
 First we will just turn off `prevonkey`, so when we backspace on an empty element here, it wont back-tab to the previous element.
 
-```html
-<AutoTabProvider settings="{{prevonkey:" false}}>
-  <input type="text" maxlength="3" />
+```jsx
+<AutoTabProvider settings={{ prevonkey: false }}>
+  <input type='text' maxlength='3' />
   <span>-</span>
-  <input type="text" maxlength="2" />
+  <input type='text' maxlength='2' />
   <span>-</span>
-  <input type="text" maxlength="4" />
+  <input type='text' maxlength='4' />
 </AutoTabProvider>
 ```
 
 Next we will turn on `nextonkey` and set it to 'Enter', expect for the middle input, it will focus on maxLength this. This can be accomplished by simply not setting a maxLength for the other inputs, or you can disable maxLength in the `AutoTabProvider` settings, and only enable it for the middle input. Lets see both
 
-```html
+```jsx
 <AutoTabProvider settings={{nextonkey: 'enter'}}>
    <label>Name</label>
    <input type="text" placeholder="First" />
@@ -142,13 +144,13 @@ Next we will turn on `nextonkey` and set it to 'Enter', expect for the middle in
 
 What if you just wanted to ignore the middle name in the above example?
 
-```html
-<AutoTabProvider settings={{nextonkey: 'enter'}}>
-   <label>Name</label>
-   <input type="text" placeholder="First" />
-   <input type="text" ignorefocus={1} maxLength="1" placeholder="M" />
-   <span>.  </span>
-   <input type="text" placeholder="Last" />
+```jsx
+<AutoTabProvider settings={{ nextonkey: 'enter' }}>
+  <label>Name</label>
+  <input type='text' placeholder='First' />
+  <input type='text' ignorefocus={1} maxLength='1' placeholder='M' />
+  <span>. </span>
+  <input type='text' placeholder='Last' />
 </AutoTabProvider>
 ```
 
