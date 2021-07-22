@@ -44,7 +44,8 @@ const AutoTabProvider = (props) => {
       e.target.maxLength > 0 &&
       e.target.value.length >= e.target.maxLength
     ) {
-      focusOn(i + 1)
+      focusOn(i + 1);
+      e.target.value = e.target.value.slice(0,1) //  Reduce value of the last input type number... 
     }
   }
   // Loop through children
